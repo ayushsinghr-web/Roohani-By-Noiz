@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roohani By Noiz | Restro-Bar, Ansal Plaza, New Delhi</title>
+<meta name="description" content="Live Sufi nights, global flavours and craft cocktails at Ansal Plaza, South Delhi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@0.469.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js" defer></script>
+<script>
+tailwind.config={theme:{extend:{colors:{gold:'#d4af37',copper:'#b87333',sufi:'#ff7b00',obsidian:'#0a0a0a'},fontFamily:{display:['"Cormorant Garamond"','serif'],body:['"Plus Jakarta Sans"','sans-serif']}}}}
+</script>
+<style>
+html{scroll-behavior:smooth}
+body{background:#0a0a0a;color:#e8e2d4;font-family:'Plus Jakarta Sans',sans-serif}
+[x-cloak]{display:none!important}
+.glow-text{text-shadow:0 0 24px rgba(212,175,55,.55)}
+.gold-text{background:linear-gradient(100deg,#d4af37,#ff7b00 60%,#b87333);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(10,10,10,.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(245,158,11,.2)}
+.para{position:relative;overflow:hidden}
+.para-bg{position:absolute;inset:-20% 0;background-size:cover;background-position:center;will-change:transform;z-index:0}
+.para-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.85),rgba(10,10,10,.7) 50%,rgba(10,10,10,.92));z-index:1}
+.para>.in{position:relative;z-index:2}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.hero-zoom{animation:zoom 14s ease-out forwards}
+@keyframes zoom{from{transform:scale(1.18)}to{transform:scale(1)}}
+.blob{position:absolute;border-radius:9999px;background:rgba(217,119,6,.12);filter:blur(120px);animation:float 14s ease-in-out infinite;pointer-events:none}
+@keyframes float{50%{transform:translate(40px,-50px) scale(1.15)}}
+.card img{transition:transform .8s ease}.card:hover img{transform:scale(1.1)}
+.pulse{animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.35}}
+input,select{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.25);border-radius:.5rem;padding:.7rem .9rem;width:100%;color:#fff;outline:none}
+input:focus,select:focus{border-color:#d4af37}
+select option{background:#0a0a0a}
+a:focus-visible,button:focus-visible{outline:2px solid #d4af37;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.hero-zoom,.blob,.pulse{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body x-data="{modal:false,scrolled:false,menu:false,tab:'indoor',sent:false}" @scroll.window="scrolled=window.scrollY>60" @keydown.escape.window="modal=false">
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 transition-all duration-500" :class="scrolled?'glass py-3':'py-6'">
+  <nav class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="#top" class="font-display text-2xl md:text-3xl font-semibold text-gold glow-text">Roohani <span class="text-base italic text-copper">By Noiz</span></a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-neutral-300">
+      <a href="#ambiance" class="hover:text-gold">Ambiance</a>
+      <a href="#menu" class="hover:text-gold">Menu</a>
+      <a href="#events" class="hover:text-gold">Events</a>
+      <a href="#reviews" class="hover:text-gold">Reviews</a>
+      <button @click="modal=true" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold to-sufi text-black font-semibold hover:shadow-[0_0_28px_rgba(255,123,0,.5)] transition">Reserve Table</button>
+    </div>
+    <button class="md:hidden text-gold" @click="menu=!menu" aria-label="Toggle menu"><i data-lucide="menu"></i></button>
+  </nav>
+  <div x-cloak x-show="menu" x-transition class="md:hidden glass mt-3 mx-4 rounded-xl p-5 flex flex-col gap-4 text-sm" @click="menu=false">
+    <a href="#ambiance">Ambiance</a><a href="#menu">Menu</a><a href="#events">Events</a><a href="#reviews">Reviews</a>
+    <button @click="modal=true" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold to-sufi text-black font-semibold">Reserve Table</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="para min-h-screen flex items-center justify-center text-center">
+  <div class="para-bg hero-zoom" data-speed="0.35" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80')"></div>
+  <div class="para-ov"></div>
+  <div class="in px-6 pt-24 max-w-4xl">
+    <div id="status" class="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm mb-8"></div>
+    <h1 class="font-display text-5xl sm:text-6xl md:text-8xl font-semibold leading-[1.02] glow-text">Where Soulful <span class="gold-text italic">Sufi Nights</span> Meet Global Flavors.</h1>
+    <p class="mt-8 text-neutral-300 flex items-center justify-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-gold"></i> Ansal Plaza, South Delhi</p>
+    <div class="mt-10 flex flex-wrap gap-4 justify-center">
+      <button @click="modal=true" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-gold to-sufi text-black font-semibold hover:scale-105 transition">Reserve a table</button>
+      <a href="#menu" class="px-8 py-3.5 rounded-full border border-gold/50 text-gold hover:bg-gold/10 transition">Explore the menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- AMBIANCE -->
+<section id="ambiance" class="para py-28">
+  <div class="para-bg transition-opacity duration-700" data-speed="0.25" :style="`background-image:url('${tab==='indoor'?'https://images.unsplash.com/photo-1543007630-9710e4a00a20':'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4'}?auto=format&fit=crop&w=1800&q=80')`"></div>
+  <div class="para-ov"></div>
+  <div class="in max-w-6xl mx-auto px-6">
+    <h2 class="reveal font-display text-4xl md:text-6xl text-center gold-text">Two rooms, one mood</h2>
+    <div class="reveal mt-10 flex justify-center gap-3" role="tablist">
+      <button role="tab" :aria-selected="tab==='indoor'" @click="tab='indoor'" class="px-6 py-3 rounded-full border transition" :class="tab==='indoor'?'bg-gold text-black border-gold':'border-gold/30 text-neutral-300'">Indoor Retro Lounge</button>
+      <button role="tab" :aria-selected="tab==='outdoor'" @click="tab='outdoor'" class="px-6 py-3 rounded-full border transition" :class="tab==='outdoor'?'bg-gold text-black border-gold':'border-gold/30 text-neutral-300'">Outdoor Terrace</button>
+    </div>
+    <div class="reveal glass rounded-3xl p-8 md:p-12 mt-10 max-w-3xl mx-auto min-h-[200px]">
+      <div x-show="tab==='indoor'" x-transition.opacity>
+        <h3 class="font-display text-3xl text-gold">Indoor Retro Lounge</h3>
+        <p class="mt-4 text-neutral-300 leading-relaxed">Velvet booths, hanging lanterns and warm amber light set the stage for live Sufi music, birthdays and long dinners that turn into late nights.</p>
+      </div>
+      <div x-cloak x-show="tab==='outdoor'" x-transition.opacity>
+        <h3 class="font-display text-3xl text-gold">Outdoor Terrace</h3>
+        <p class="mt-4 text-neutral-300 leading-relaxed">A breezy open-air rooftop under the stars. Order a craft cocktail, share a tandoori platter and let the city glow around you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="relative py-28 overflow-hidden">
+  <div class="blob w-96 h-96 -top-10 -left-20"></div><div class="blob w-[28rem] h-[28rem] bottom-0 right-0" style="animation-delay:-6s"></div>
+  <div class="relative max-w-7xl mx-auto px-6">
+    <h2 class="reveal font-display text-4xl md:text-6xl text-center gold-text">From the tandoor and the bar</h2>
+    <p class="reveal text-center text-neutral-400 mt-4">Smoky starters, slow-cooked classics and signature pours.</p>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="reveal card glass rounded-2xl overflow-hidden"><div class="h-56 overflow-hidden"><img loading="lazy" class="w-full h-full object-cover" alt="Tandoori platter" src="https://images.unsplash.com/photo-1599487488170-d33ec6c2d3f7?auto=format&fit=crop&w=800&q=80"></div><div class="p-6"><h3 class="font-display text-2xl text-gold">Afghani Soya Chaap</h3><p class="text-sm text-neutral-400 mt-2">Creamy tandoori platter served with Malabar paratha.</p></div></article>
+      <article class="reveal card glass rounded-2xl overflow-hidden"><div class="h-56 overflow-hidden"><img loading="lazy" class="w-full h-full object-cover" alt="Tikka starter" src="https://images.unsplash.com/photo-1599487488170-d33ec6c2d3f7?auto=format&fit=crop&w=800&q=80&sat=-10&sepia=1"></div><div class="p-6"><h3 class="font-display text-2xl text-gold">Chicken Chettinad Tikka</h3><p class="text-sm text-neutral-400 mt-2">A spicy fusion tandoor starter with South Indian heat.</p></div></article>
+      <article class="reveal card glass rounded-2xl overflow-hidden"><div class="h-56 overflow-hidden"><img loading="lazy" class="w-full h-full object-cover" alt="Wood-fired pizza" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"></div><div class="p-6"><h3 class="font-display text-2xl text-gold">Wood-Fired Garden Pizza</h3><p class="text-sm text-neutral-400 mt-2">Gourmet hand-tossed pizza with garden-fresh toppings.</p></div></article>
+      <article class="reveal card glass rounded-2xl overflow-hidden"><div class="h-56 overflow-hidden"><img loading="lazy" class="w-full h-full object-cover" alt="Dal makhani" src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80"></div><div class="p-6"><h3 class="font-display text-2xl text-gold">Dal Makhani</h3><p class="text-sm text-neutral-400 mt-2">Slow-cooked rich recipe, paired with garlic naan.</p></div></article>
+      <article class="reveal card glass rounded-2xl overflow-hidden sm:col-span-2"><div class="h-56 overflow-hidden"><img loading="lazy" class="w-full h-full object-cover" alt="Craft cocktails" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1400&q=80"></div><div class="p-6"><h3 class="font-display text-2xl text-gold">Signature Craft Cocktails &amp; Mixology</h3><p class="text-sm text-neutral-400 mt-2">House-crafted pours and bar classics, mixed to suit the music.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events" class="relative py-28 overflow-hidden bg-neutral-950">
+  <div class="blob w-96 h-96 top-20 right-10"></div>
+  <div class="relative max-w-5xl mx-auto px-6">
+    <h2 class="reveal font-display text-4xl md:text-6xl text-center gold-text">The weekly calendar</h2>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <div class="reveal glass rounded-2xl p-8"><i data-lucide="mic-2" class="text-sufi mb-4"></i><h3 class="font-display text-2xl text-gold">Live Sufi Wednesdays</h3><p class="text-sm text-neutral-400 mt-2">A live Sufi singer carries the room through the night.</p></div>
+      <div class="reveal glass rounded-2xl p-8"><i data-lucide="guitar" class="text-sufi mb-4"></i><h3 class="font-display text-2xl text-gold">Acoustic Weekends</h3><p class="text-sm text-neutral-400 mt-2">Unplugged sets for slow dinners and easy conversation.</p></div>
+      <div class="reveal glass rounded-2xl p-8"><i data-lucide="disc-3" class="text-sufi mb-4"></i><h3 class="font-display text-2xl text-gold">Bollywood DJ Nights</h3><p class="text-sm text-neutral-400 mt-2">Familiar hits and a packed floor as the night builds.</p></div>
+    </div>
+    <div class="reveal mt-10 rounded-2xl p-8 text-center bg-gradient-to-r from-copper/30 via-sufi/20 to-gold/20 border border-gold/30">
+      <p class="font-display text-3xl md:text-4xl">Up to 35% off with Zomato &amp; Swiggy Dineout</p>
+      <p class="text-sm text-neutral-300 mt-2">Book through the app, or reserve directly with us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="para py-28">
+  <div class="para-bg" data-speed="0.25" style="background-image:url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1800&q=80')"></div>
+  <div class="para-ov"></div>
+  <div class="in max-w-6xl mx-auto px-6">
+    <h2 class="reveal font-display text-4xl md:text-6xl text-center gold-text">Said by our guests</h2>
+    <div class="mt-14 grid md:grid-cols-2 gap-6">
+      <figure class="reveal glass rounded-2xl p-8"><blockquote class="text-neutral-200 leading-relaxed">“Hosted my wife's birthday party here and everything was on point! The food, ambience, and live singing were phenomenal...”</blockquote><figcaption class="mt-5 font-display text-xl text-gold">Devika Vats</figcaption></figure>
+      <figure class="reveal glass rounded-2xl p-8"><blockquote class="text-neutral-200 leading-relaxed">“A beautiful birthday evening at Roohani by Noiz! The overall vibe added a wonderful touch to the celebration.”</blockquote><figcaption class="mt-5 font-display text-xl text-gold">Huda Syeda</figcaption></figure>
+      <figure class="reveal glass rounded-2xl p-8"><blockquote class="text-neutral-200 leading-relaxed">“Food was excellent, and the Sufi singer is absolute magic! Top-tier service, unmatched vibe.”</blockquote><figcaption class="mt-5 font-display text-xl text-gold">Harbans Dhir</figcaption></figure>
+      <figure class="reveal glass rounded-2xl p-8"><blockquote class="text-neutral-200 leading-relaxed">“The staff personalized our table... The music and energy as the evening transitions into night are incredible.”</blockquote><figcaption class="mt-5 font-display text-xl text-gold">Abhinav Dhruv</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black border-t border-gold/20 pt-16 pb-8">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-sm text-neutral-400">
+    <div><p class="font-display text-2xl text-gold">Roohani <span class="italic text-copper text-base">By Noiz</span></p><p class="mt-3">Ansal Plaza, South Delhi, New Delhi</p><a href="tel:+918091166153" class="mt-2 inline-flex items-center gap-2 text-gold"><i data-lucide="phone" class="w-4 h-4"></i> +91 80911 66153</a></div>
+    <div><p class="text-gold font-semibold mb-3">Hours</p><p>Open daily, 12:30 PM to 3:00 AM</p></div>
+    <div><p class="text-gold font-semibold mb-3">We accept</p><p class="flex items-center gap-2"><i data-lucide="credit-card" class="w-4 h-4"></i> Cards, UPI and Cash</p>
+      <div class="flex gap-4 mt-5 text-gold"><a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a><a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a></div></div>
+  </div>
+  <p class="text-center text-xs text-neutral-600 mt-12">© <span id="yr"></span> Roohani By Noiz. All rights reserved.</p>
+</footer>
+
+<!-- MOBILE CALL BAR -->
+<a href="tel:+918091166153" class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-gold to-sufi text-black flex items-center justify-center shadow-[0_0_30px_rgba(255,123,0,.5)]" aria-label="Call Roohani"><i data-lucide="phone"></i></a>
+
+<!-- RESERVATION MODAL -->
+<div x-cloak x-show="modal" x-transition.opacity class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" @click.self="modal=false" role="dialog" aria-modal="true" aria-label="Reserve a table">
+  <div class="glass rounded-3xl p-8 w-full max-w-md relative max-h-[92vh] overflow-y-auto">
+    <button class="absolute top-4 right-4 text-neutral-400 hover:text-gold" @click="modal=false" aria-label="Close"><i data-lucide="x"></i></button>
+    <h3 class="font-display text-3xl text-gold">Reserve a table</h3>
+    <form x-show="!sent" class="mt-6 space-y-4" @submit.prevent="sent=true">
+      <input required placeholder="Your name" aria-label="Name">
+      <input required type="tel" placeholder="Phone number" aria-label="Phone">
+      <div class="grid grid-cols-2 gap-3"><input required type="date" aria-label="Date"><input required type="time" aria-label="Time"></div>
+      <select aria-label="Guests"><option>2 guests</option><option>4 guests</option><option>6 guests</option><option>8+ guests</option></select>
+      <select aria-label="Seating"><option>Indoor Retro Lounge</option><option>Outdoor Terrace</option></select>
+      <button class="w-full py-3.5 rounded-full bg-gradient-to-r from-gold to-sufi text-black font-semibold">Request reservation</button>
+    </form>
+    <div x-cloak x-show="sent" class="mt-6 text-center">
+      <i data-lucide="check-circle-2" class="w-12 h-12 text-gold mx-auto"></i>
+      <p class="mt-4">Request received. We will confirm by phone shortly.</p>
+      <button class="mt-6 text-gold underline" @click="modal=false;sent=false">Close</button>
+    </div>
+    <p class="text-sm text-neutral-400 mt-6 text-center">Prefer to talk? <a class="text-gold" href="tel:+918091166153">+91 80911 66153</a></p>
+  </div>
+</div>
+
+<script>
+// Icons
+const icons=()=>window.lucide&&lucide.createIcons();
+window.addEventListener('load',icons);
+document.addEventListener('alpine:initialized',()=>setTimeout(icons,50));
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Live open/closed status (12:30 PM – 3:00 AM, India time)
+(function(){
+  const ist=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata'}));
+  const m=ist.getHours()*60+ist.getMinutes();
+  const open=m>=750||m<180;
+  document.getElementById('status').innerHTML=open
+    ?'<span class="w-2.5 h-2.5 rounded-full bg-green-500 pulse"></span> Open Now • 12:30 PM to 3:00 AM'
+    :'<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Closed • Opens 12:30 PM, closes 3:00 AM';
+})();
+
+// Scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+
+// Multi-layer parallax: each background moves at its own speed
+const layers=[...document.querySelectorAll('.para-bg')];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let ticking=false;
+function parallax(){
+  const vh=innerHeight;
+  layers.forEach(l=>{
+    const r=l.parentElement.getBoundingClientRect();
+    if(r.bottom<0||r.top>vh)return;
+    const off=(r.top+r.height/2-vh/2)*-parseFloat(l.dataset.speed);
+    l.style.transform=`translate3d(0,${off.toFixed(1)}px,0)`;
+  });
+  ticking=false;
+}
+if(!reduce){addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(parallax)}},{passive:true});addEventListener('resize',parallax);parallax()}
+</script>
+</body>
+</html>
